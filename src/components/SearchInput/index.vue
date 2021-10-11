@@ -10,7 +10,7 @@ export default {
     //接收父组件传过来的数据
     props: {
         placeholder: String,
-        maxLength: String
+        maxLength: Number
   },
 }
 </script>

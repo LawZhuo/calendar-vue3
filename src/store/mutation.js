@@ -54,5 +54,24 @@ export default {
     // 根据路由名称变更搜索框对应的路由界面
     setField(state, routerName) {
         state.field = routerName;
+    },
+    //修改错误码
+    setErrorCode(state, errorCode) {
+        state.errorCode = errorCode
+    },
+    setData(state, payload) {
+        const { field, data } = payload;
+
+        switch(field) {
+            case 'day':
+                state.dayData = data;
+                break;
+            case 'month': 
+                state.monthData = data;
+                break;
+            case 'year':
+                state.yearData = data;
+                break;
+        }
     }
 }

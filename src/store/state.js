@@ -5,5 +5,11 @@ export default {
     placeholder: '',
     // 定义搜索文字的长度
     maxLength: 8,
-    field: 'day'
+    field: 'day',
+    //错误码
+    errorCode: 0,
+    //存储当天的数据
+    dayData: {},
+    monthData: [],
+    yearData: []
 }
