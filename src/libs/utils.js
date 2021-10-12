@@ -43,8 +43,26 @@ function formatChsDate(date, field) {
     }
 }
 
+//格式化用户输入的日期
+function formatUserDate(date, field) {
+    switch(date.length) {
+        case 8:
+            let year = date.substr(0, 4);
+            let month = Number(date.substr(4, 2));
+            let day = Number(date.substr(6, 2));
+            return `${year}-${month}-${day}`;
+        case 6:
+            year = date.substr(0, 4);
+            month = Number(date.substr(4, 2));
+            return `${year}-${month}`;
+        case 4:
+            return date
+    } 
+}
+
 export {
     getIconDate,
     getNowDate,
-    formatChsDate
+    formatChsDate,
+    formatUserDate
 }

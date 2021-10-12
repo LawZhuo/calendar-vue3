@@ -44,7 +44,7 @@ const getMonthData = yearMonth => {
 const getYearData = year => {
     return new Promise((resolve, reject) => {
         axiosPost({
-            url: 'api/calender/year',
+            url: '/api/calendar/year',
             data: {
                 year
             },

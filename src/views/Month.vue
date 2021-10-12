@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <!-- 调用子组件，并向子组件传数据 -->
-    <card-list :data="monthData"></card-list>
+    <!-- 状态码不为0 errorCode为true，则显示错误提示页面 -->
+    <error-tip :errorCode="errorCode" v-if="errorCode"></error-tip>
+    <!-- 状态码为0，则显示数据页面 -->
+    <div v-else>
+      <!-- 调用子组件，并向子组件传数据 -->
+      <card-list :data="monthData"></card-list>
+    </div>
   </div>
 </template>
 
@@ -26,6 +31,7 @@ export default {
     return {
       // 暴露数据 供子组件调用
       monthData: computed(() => store.state.monthData),
+      errorCode: computed(() => store.state.errorCode),
     };
   },
   components: {

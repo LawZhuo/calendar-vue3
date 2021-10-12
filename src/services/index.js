@@ -36,9 +36,14 @@ const getData = async (store, field, date) => {
             for (let item of res) {
                 item.festival = formatChsDate(item.festival, 'day')
             };
-            console.log(res)
+            // console.log(res)
             break; 
         case 'year':
+            res = data.result.data.holiday_list;
+            for (let item of res) {
+                item.startday = formatChsDate(item.startday, 'day')
+            }
+            break;
     }
 
     store.commit('setData', {

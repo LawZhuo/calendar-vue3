@@ -1,7 +1,12 @@
 <template>
     <div class="container">
-        <day-card :data="dayData"></day-card>
-        <day-list :data="dayData"></day-list>
+        <!-- 状态码不为0 errorCode为true，则显示错误提示页面 -->
+        <error-tip :errorCode="errorCode" v-if="errorCode"></error-tip>
+        <!-- 状态码为0，则显示数据页面 -->
+        <div v-else>
+            <day-card :data="dayData"></day-card>
+            <day-list :data="dayData"></day-list>
+        </div>
     </div>
 </template>
 
@@ -23,12 +28,13 @@ export default {
 
         // 返回数据对象，使用computed将数据变为计算属性，返回一个ref响应式对象
         return {
-            dayData: computed(() => store.state.dayData)
+            dayData: computed(() => store.state.dayData),
+            errorCode: computed(() => store.state.errorCode)
         }
     },
     components: {
         DayCard,
-        DayList
+        DayList,
     }
 }
 </script>
