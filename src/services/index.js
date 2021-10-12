@@ -32,13 +32,18 @@ const getData = async (store, field, date) => {
             res['year-month'] = formatChsDate(res['year-month'], 'month')
             break;
         case 'month':
-
+            res = data.result.data.holiday_array;
+            for (let item of res) {
+                item.festival = formatChsDate(item.festival, 'day')
+            };
+            console.log(res)
+            break; 
         case 'year':
     }
 
     store.commit('setData', {
         field,
-        data: data.result.data
+        data: res
     })
 };
 

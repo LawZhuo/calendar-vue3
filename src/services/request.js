@@ -23,7 +23,7 @@ const getDayData = date => {
 };
 
 //获取近期假期的数据
-const getMonthData = data => {
+const getMonthData = yearMonth => {
     return new Promise((resolve, reject) => {
         axiosPost({
             url: '/api/calendar/month',
@@ -41,7 +41,7 @@ const getMonthData = data => {
 };
 
 //获取当年假期列表
-const getYearData = data => {
+const getYearData = year => {
     return new Promise((resolve, reject) => {
         axiosPost({
             url: 'api/calender/year',
